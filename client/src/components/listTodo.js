@@ -40,11 +40,12 @@ const ListTodo = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <>
+    <section className="flex flex-col justify-center items-center mt-5">
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
     <Navbar />
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-red-100">
+            <thead className="text-xs text-red-100 uppercase bg-red-600 dark:bg-red-600 dark:text-red-100">
                 <tr>
                     <th scope="col" className="py-3 px-6">
                         Todo Name
@@ -63,15 +64,15 @@ const ListTodo = () => {
             <tbody>
               {allTodos.map((todo, index) => {
                     return (
-                      <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <Link className="content-center" to={`/todos/${todo._id}`}>
-                          <td className="content-center" >{todo.todoName}</td>
+                      <tr key={index} className="bg-white text-red-600 border-b dark:bg-white dark:border-gray-700">
+                        <Link className="py-4 px-6" to={`/todos/${todo._id}`}>
+                          <td className="align-middle" >{todo.todoName}</td>
                         </Link>
-                        <td className="py-4 px-6" id="petType">{todo.todoType}</td>
+                        <td className="py-4 px-6" id="todoType">{todo.todoType}</td>
                         <td className="py-4 px-6">{todo.todoDescription}</td>
                         <td className="py-4 px-6">
                           <div className="inline-flex rounded-md shadow-sm" role="group">
-                            <Link to={`/pets/edit/${todo._id}`}>
+                            <Link to={`/todos/edit/${todo._id}`}>
                               <button className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Edit</button>
                             </Link>
                             <button
@@ -85,7 +86,8 @@ const ListTodo = () => {
             </tbody>
         </table>
     </div>
-    </div>
+    </section>
+    </>
   );
 };
 
